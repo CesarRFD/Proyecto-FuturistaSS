@@ -25,6 +25,14 @@ public class Movement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
+        if (horizontal < 0.0f)
+        {
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        }
+        else if (horizontal > 0.0f)
+        {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.001f)
         {
             rb.AddForce(new Vector2(0f, fuerzaSalto), ForceMode2D.Impulse);

@@ -1,31 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Logica General.")]
-    private bool enemigoVisto = false;
-    private BoxCollider2D ConoVision;
+    private Vision vision;
+    private Rigidbody2D enemyRB;
+private Rigidbody2D playerRB;
+
     void Start()
     {
-        ConoVision = GameObject.Find("Vision").GetComponent<BoxCollider2D>();
+        enemyRB = GetComponent<Rigidbody2D>();
+        playerRB = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        vision = GameObject.Find("Vision").GetComponent<Vision>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (vision.EnemigoVisto()) enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, playerRB.transform.position, 0.01f);
         
     }
-    
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            enemigoVisto = true;
-            Debug.Log("Enemigo Visto");
-        }
-        
-    }
-
 }
