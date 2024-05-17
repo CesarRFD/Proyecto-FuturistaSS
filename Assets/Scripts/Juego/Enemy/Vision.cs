@@ -6,16 +6,19 @@ using UnityEngine.UIElements;
 public class Vision : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
-    private bool enemigoVisto = false;
-    
+    private	Dagger dagger;
+    private bool enemigoVisto;
+
     void Start()
     {
         playerCollider = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+        dagger = GameObject.Find("Dagger").GetComponent<Dagger>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == playerCollider.gameObject)
         {
+            dagger.SetVistoTrue();
             enemigoVisto = true;
         }
     }
@@ -23,6 +26,7 @@ public class Vision : MonoBehaviour
     {
         if (collision.gameObject == playerCollider.gameObject)
         {
+            dagger.SetVistoFalse();
             enemigoVisto = false;
         } 
     }

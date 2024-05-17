@@ -5,16 +5,12 @@ using UnityEngine.UIElements;
 
 public class Dagger : MonoBehaviour
 {
-    private Vision vision;
-    private bool contact;
     private GameObject enemyInContact;
-    void Start()
-    {
-        vision = GameObject.Find("Vision").GetComponent<Vision>();
-    }
+    private bool contact;
+    private bool vision;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && contact && vision.EnemigoVisto() == false)Destroy(enemyInContact);
+        if (Input.GetKeyDown(KeyCode.F) && contact && vision == false) Destroy (enemyInContact);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -28,5 +24,11 @@ public class Dagger : MonoBehaviour
             contact = false;
             enemyInContact = null;
         }
+    }
+    public void SetVistoTrue(){
+        vision = true;
+    }
+    public void SetVistoFalse(){
+        vision = false;
     }
 }
