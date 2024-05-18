@@ -345,7 +345,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -414,12 +414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e34bbc092054842900ffecee1aad1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velMovimiento: 3
   puntosMovimiento:
   - {fileID: 115232184604622378}
   - {fileID: 991178750105034222}
-  distanciaMinima: 0.5
-  vision: {fileID: 0}
 --- !u!1 &5513482808206122714
 GameObject:
   m_ObjectHideFlags: 0

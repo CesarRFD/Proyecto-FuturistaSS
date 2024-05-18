@@ -6,17 +6,18 @@ using UnityEngine.UIElements;
 public class Vision : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
-    private	Dagger dagger;
+    private Dagger dagger;
     private bool enemigoVisto;
 
-    void Start()
+    void Awake()
     {
         playerCollider = GameObject.Find("Player").GetComponent<BoxCollider2D>();
         dagger = GameObject.Find("Dagger").GetComponent<Dagger>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == playerCollider.gameObject)
+        if (collision.gameObject.tag == "Player")
         {
             dagger.SetVistoTrue();
             enemigoVisto = true;
@@ -24,12 +25,13 @@ public class Vision : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == playerCollider.gameObject)
+        if (collision.gameObject.tag == "Player")
         {
             dagger.SetVistoFalse();
             enemigoVisto = false;
-        } 
+        }
     }
+
     public bool EnemigoVisto()
     {
         return enemigoVisto;

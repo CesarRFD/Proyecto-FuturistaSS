@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public int tecladoOMovil = 1;//Logica Para Teclado O Movil.
 
     [Header("Archivos De Lectura.")]
-    static private readonly float speed = 3;
+    [SerializeField] private float speed = 3;
     //static private readonly float torque = 1f;
     static private readonly float fuerzaSalto = 5f;
 
@@ -24,7 +24,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
+        //transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         if (horizontal < 0.0f)
         {
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
