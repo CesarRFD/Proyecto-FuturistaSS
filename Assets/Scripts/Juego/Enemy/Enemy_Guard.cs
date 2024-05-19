@@ -5,10 +5,11 @@ using UnityEngine;
 public class Enemy_Guard : MonoBehaviour
 {
     [Header("Logica General.")]
-    [SerializeField] private Vision visionI;
-    [SerializeField] private Vision visionD;
+    private Vision visionI;
+    private Vision visionD;
     private Rigidbody2D enemyRB;
     private Rigidbody2D playerRB;
+    [SerializeField] private float speed = 0.05f;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class Enemy_Guard : MonoBehaviour
         if ((visionI != null && visionI.EnemigoVisto()) || (visionD != null && visionD.EnemigoVisto()))
         { 
             enemyRB.transform.position = Vector2.MoveTowards
-            (enemyRB.transform.position, playerRB.transform.position, 0.01f);
+            (enemyRB.transform.position, playerRB.transform.position, speed);
             Debug.Log("Enemigo Visto");
         }
     }

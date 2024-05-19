@@ -61,6 +61,7 @@ public class Enemy_Agent : MonoBehaviour
                 }
             break;
         }
+
     }
     //Corrutina Para Mover Al Enemigo Hacia El Jugador.
     IEnumerator MoveTowardsPlayer()
@@ -77,7 +78,7 @@ public class Enemy_Agent : MonoBehaviour
             /////////////////////////////////////////////////////////////////
             ///Con este codigo se mueve el enemigo hacia el jugador.
             enemyRB.transform.position = new Vector2(
-                Mathf.MoveTowards(enemyRB.transform.position.x, playerRB.transform.position.x, speed*2),
+                Mathf.MoveTowards(enemyRB.transform.position.x, playerRB.transform.position.x, speed*3),
                 enemyRB.transform.position.y);
 
 

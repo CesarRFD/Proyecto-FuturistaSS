@@ -12,14 +12,17 @@ public class Dagger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && contact && vision == false) Destroy (enemyInContact);
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             contact = true;
             enemyInContact = collision.gameObject;
         }
-        else
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
         {
             contact = false;
             enemyInContact = null;
