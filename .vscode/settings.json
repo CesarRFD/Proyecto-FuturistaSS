@@ -57,5 +57,5 @@
     "Temp/": true
   },
   "dotnet.defaultSolution": "Proyecto-FuturistaSS.sln",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "visualstudiotoolsforunity.vstuc"
 }

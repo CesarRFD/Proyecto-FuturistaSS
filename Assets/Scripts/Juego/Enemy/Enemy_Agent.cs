@@ -70,17 +70,14 @@ public class Enemy_Agent : MonoBehaviour
         float elapsedTime = 0;//Esta variable se encarga de contar el tiempo que ha pasado desde que se inicio el ciclo.
         MovingToPlayer = true;//Esta variable se encarga de saber si el enemigo se esta moviendo hacia el jugador, sirve para evitar que el enemigo se mueva hacia el jugador mientras ya se esta moviendo hacia el jugador.
         while (elapsedTime < 5f)
-        {
+            {
             directionPlayer = Mathf.Sign(playerRB.position.x - enemyRB.position.x);//Se guarda el valor de la direccion del jugador con respecto al enemigo.
             enemyRB.transform.localScale = new Vector3(directionPlayer, 1, 1);//Se cambia la direccion del enemigo.
             elapsedTime += Time.deltaTime;//Se suma el tiempo que ha pasado desde que se inicio el ciclo.
 
             /////////////////////////////////////////////////////////////////
             ///Con este codigo se mueve el enemigo hacia el jugador.
-            enemyRB.transform.position = new Vector2(
-                Mathf.MoveTowards(enemyRB.transform.position.x, playerRB.transform.position.x, speed*3),
-                enemyRB.transform.position.y);
-
+            enemyRB.transform.position = new Vector2(Mathf.MoveTowards(enemyRB.transform.position.x, playerRB.transform.position.x, speed*3),enemyRB.transform.position.y);
 
             yield return null;//Si
         }
